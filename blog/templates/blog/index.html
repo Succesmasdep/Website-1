@@ -3,18 +3,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		{% include "head.html" %}
+		{% include "blog/head.html" %}
 	</head>
 	<body>
-		{% include "navbar.html" %}
+		{% include "blog/navbar.html" %}
 
-		{% block content %}
-			
-		{% endblock content %}
+		<div class="container">
+			{% block content %}
+				<ul>
+				(% for post in object_list %)
+					<li>
+					{{ post.title }} - {{ post.author }} <br/>
+					{{ post.konten }}
+					</li>
+				(% endfor%)
+				</ul>
+			{% endblock content %}
+		</div>
 
-		{% include "footer.html" %}
+		{% include "blog/footer.html" %}
 
-		{% include "javascript.html" %}
+		{% include "blog/javascript.html" %}
 
 	</body>
 </html>
