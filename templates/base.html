@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	{% include 'head.html' %}
+	<body>
+		{% include 'navbar.html' %}
+
+		<main role="main" class="flex-shrink-0">
+			<div class="container">
+
+				{% block content %}
+					<ul>
+						
+						{% for post in object_list %}
+							<li>
+							<a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a> - {{ post.author }} <br/>
+							{{ post.konten }}
+							</li>
+						{% endfor %}
+							
+
+					</ul>
+				{% endblock content %}
+			</div>
+		</main>
+
+		<!-- Footer -->
+		{% include 'footer.html' %}
+
+		<!-- JavaScript -->
+		{% include 'javascript.html' %}
+
+	</body>
+</html>

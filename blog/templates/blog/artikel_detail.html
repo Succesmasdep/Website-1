@@ -1,11 +1,19 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+
+
+{% block judul %}
+    Stand Blog | {{ post.judul }}
+{% endblock judul %}
+    
 
 {% block content %}
 
-<h1>{{ post.title }}</h1>
+<h1>{{ post.judul }}</h1>
 <small>Oleh : {{ post.author}}</small><br/>
 <hr>
 <br/>
-{{ post.body }}
+{{ post.konten }}
 
+<br><br>
+<a class="btn btn-info" href="{% url 'home' %}">Kembali</a>
 {% endblock content %}
