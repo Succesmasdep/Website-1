@@ -3,7 +3,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		{% include "blog/head.html" %}
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="{{author}}">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+		<title>{% block judul %}{% endblock judul %}</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="blog/css/bootstrap.min.css" rel="stylesheet">
+
 	</head>
 	<body>
 		{% include "blog/navbar.html" %}
@@ -13,7 +23,7 @@
 				<ul>
 				(% for post in object_list %)
 					<li>
-					{{ post.title }} - {{ post.author }} <br/>
+					<a href="(% url 'artikel-detail%)" post.title }} - {{ post.author }} <br/>
 					{{ post.konten }}
 					</li>
 				(% endfor%)
@@ -23,7 +33,9 @@
 
 		{% include "blog/footer.html" %}
 
-		{% include "blog/javascript.html" %}
+		<!-- JavaScript -->
+		<script src="blog/js/jquery-3.5.1.slim.min.js"></script>
+		<script src="blog/js/bootstrap.js"></script>
 
 	</body>
 </html>

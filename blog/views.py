@@ -7,3 +7,7 @@ from .models import Post
 class HomeView(ListView):
     model = Post
     template_name = 'blog/index.html'
+
+class ArtikelDetail(DetailView):
+    model = Post
+    template_name = 'blog/index.html'
