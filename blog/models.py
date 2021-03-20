@@ -8,6 +8,7 @@ class Post(models.Model):
     judul = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     konten = models.TextField()
+    # kategori = models.CharField(max_length=50)
 
     def __str__(self):
         return self.judul

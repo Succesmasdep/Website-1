@@ -4,7 +4,9 @@
 	<ul>
 		{% for post in object_list %}
 			<li>
-			<a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a><br>
+			<a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a> 
+			<a href="{% url 'edit-artikel' post.pk %}">(Edit)</a>
+			<br>
 			<small>penulis : {{ post.author }}</small>
 			<br>
 			{{ post.konten }}

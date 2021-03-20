@@ -10,6 +10,7 @@
 
 <h1>{{ post.judul }}</h1>
 <small>Oleh : {{ post.author}}</small><br/>
+<a href="{% url 'edit-artikel' post.pk %}">(Edit)</a>
 <hr>
 <br/>
 {{ post.konten }}

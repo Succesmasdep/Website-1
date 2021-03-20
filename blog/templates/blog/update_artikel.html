@@ -2,13 +2,14 @@
 
 
 {% block judul %}
-    Stand Blog | Post Artikel
+    Stand Blog | Edit Artikel
 {% endblock judul %}
     
 {% block content %}
 
-    <h1>Tambahkan Artikel Baru</h1>
-    
+    <h1>Edit Artikel Anda</h1>
+    <br>
+
     <form method="POST" action="">
         <div class="form-group">
             {% csrf_token %}
