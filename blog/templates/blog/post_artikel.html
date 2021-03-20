@@ -5,11 +5,17 @@
     Stand Blog | Post Artikel
 {% endblock judul %}
     
-
 {% block content %}
 
-
-
-<br><br>
-<a class="btn btn-info" href="{% url 'home' %}">Kembali</a>
+    <h1>Tambahkan Artikel Baru</h1>
+    <table>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_table }}
+            
+        </form>
+    </table>
+    <button class="btn btn-primary">Post</button>
+    <br><br>
+    <a class="btn btn-info" href="{% url 'home' %}">Kembali</a>
 {% endblock content %}
