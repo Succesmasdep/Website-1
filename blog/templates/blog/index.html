@@ -6,11 +6,13 @@
 			<li>
 			<a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a> 
 			<a href="{% url 'edit-artikel' post.pk %}">(Edit)</a>
+			<a href="{% url 'hapus-artikel' post.pk %}">(Hapus)</a>
 			<br>
 			<small>penulis : {{ post.author }}</small>
 			<br>
 			{{ post.konten }}
 			</li>
+			<br>
 		{% endfor %}
 	</ul>
 {% endblock content %}
