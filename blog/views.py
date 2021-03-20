@@ -10,4 +10,4 @@ class HomeView(ListView):
 
 class ArtikelDetail(DetailView):
     model = Post
-    template_name = 'blog/index.html'
+    template_name = 'blog/artikel_detail.html'

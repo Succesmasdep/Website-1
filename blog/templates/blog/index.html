@@ -9,24 +9,27 @@
 		<meta name="author" content="{{author}}">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 
-		<title>{% block judul %}{% endblock judul %}</title>
+		<title>{% block judul %}{{ Post.judul }}{% endblock judul %}</title>
 
 		<!-- Bootstrap core CSS -->
-		<link href="blog/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{% static 'blog/css/bootstrap.min.css' %}" rel="stylesheet">
 
 	</head>
 	<body>
-		{% include "blog/navbar.html" %}
+		{% include 'blog/navbar.html' %}
 
 		<div class="container">
 			{% block content %}
 				<ul>
-				(% for post in object_list %)
-					<li>
-					<a href="(% url 'artikel-detail%)" post.title }} - {{ post.author }} <br/>
-					{{ post.konten }}
-					</li>
-				(% endfor%)
+					
+					{% for post in object_list %}
+						<li>
+						<a href="(% url 'detail-artikel' post.pk %)">{{ post.title }}</a> - {{ post.author }} <br/>
+						{{ post.konten }}
+						</li>
+					{% endfor %}
+						
+
 				</ul>
 			{% endblock content %}
 		</div>
@@ -34,8 +37,8 @@
 		{% include "blog/footer.html" %}
 
 		<!-- JavaScript -->
-		<script src="blog/js/jquery-3.5.1.slim.min.js"></script>
-		<script src="blog/js/bootstrap.js"></script>
+		<script src="{% static 'blog/js/jquery-3.5.1.slim.min.js' %}"></script>
+		<script src="{% static 'blog/js/bootstrap.js' %}"></script>
 
 	</body>
 </html>
