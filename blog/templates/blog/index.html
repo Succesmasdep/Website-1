@@ -4,15 +4,17 @@
 	<ul>
 		{% for post in object_list %}
 			<li>
-			<h3><a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a></h3> 
+			<h3><a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a></h3>
+			{% if user.is_authenticated %}
 			<a href="{% url 'edit-artikel' post.pk %}">(Edit)</a>
 			<a href="{% url 'hapus-artikel' post.pk %}">(Hapus)</a>
+			{% endif %}
 			<br>
 			<small>Penulis: {{ post.author }}</small>
 			<br>
 			<small>Posted on: {{ post.pub_date }}</small>
 			<br>
-			{{ post.konten }}
+			{{ post.konten|slice:":500"|safe }}
 			</li>
 			<br>
 		{% endfor %}

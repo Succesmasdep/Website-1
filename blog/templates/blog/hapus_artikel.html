@@ -6,6 +6,7 @@
     
 {% block content %}
 
+{% if user.is_authenticated %}
     <h1>Hapus Artikel {{ post.judul}}</h1>
     <br>
 
@@ -16,6 +17,12 @@
             <button type="submit" class="btn btn-danger">Hapus Artikel</button>
         </div>
     </form>
+
+{% else %}
+
+Anda Harus Log In Terlebih dahulu!!!
+
+{% endif %}
 
     <br><br>
     <a class="btn btn-info" href="{% url 'home' %}">Kembali</a>

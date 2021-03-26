@@ -7,6 +7,7 @@
     
 {% block content %}
 
+{% if user.is_authenticated %}
     <h1>Tambahkan Artikel Baru</h1>
     
     <form method="POST" action="">
@@ -16,6 +17,7 @@
             <button type="submit" class="btn btn-primary">Post</button>
         </div>
     </form>
+{% endif %}
 
     <br><br>
     <a class="btn btn-info" href="{% url 'home' %}">Kembali</a>

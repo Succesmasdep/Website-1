@@ -18,23 +18,32 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'home' %}">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
+          {% if user.is_authenticated %}
           <li>
             <a href="{% url 'post-artikel' %}" class="nav-link">Buat Posting
             </a>
           </li>
           <li>
+            <a href="{% url 'logout' %}" class="nav-link">Log Out
+            </a>
+          </li>
+          {% else %}
+          <li>
             <a href="{% url 'register' %}" class="nav-link">Daftar
             </a>
           </li>
+          
           <li>
             <a href="{% url 'login' %}" class="nav-link">Log In
             </a>
           </li>
+          {% endif %}
         </ul>
       </div>
     </div>
