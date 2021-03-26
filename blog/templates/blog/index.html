@@ -4,11 +4,13 @@
 	<ul>
 		{% for post in object_list %}
 			<li>
-			<a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a> 
+			<h3><a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a></h3> 
 			<a href="{% url 'edit-artikel' post.pk %}">(Edit)</a>
 			<a href="{% url 'hapus-artikel' post.pk %}">(Hapus)</a>
 			<br>
-			<small>penulis : {{ post.author }}</small>
+			<small>Penulis: {{ post.author }}</small>
+			<br>
+			<small>Posted on: {{ post.pub_date }}</small>
 			<br>
 			{{ post.konten }}
 			</li>
