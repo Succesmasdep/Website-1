@@ -12,9 +12,11 @@
 			<br>
 			<small>Penulis: {{ post.author }}</small>
 			<br>
+			<small>Kategori: {{ post.kategori }}</small>
+			<br>
 			<small>Posted on: {{ post.pub_date }}</small>
 			<br>
-			{{ post.konten|slice:":500"|safe }}
+			{{ post.konten|slice:":250"|safe }}
 			</li>
 			<br>
 		{% endfor %}

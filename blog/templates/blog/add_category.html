@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block judul %}
+    Stand Blog | Tambah Kategori
+{% endblock judul %}
+    
+{% block content %}
+
+{% if user.is_authenticated %}
+    <h1>Tambahkan Kategori Baru</h1>
+    
+    <form method="POST" action="">
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Tambah Kategori</button>
+        </div>
+    </form>
+{% endif %}
+
+    <br><br>
+    <a class="btn btn-info" href="{% url 'home' %}">Kembali</a>
+{% endblock content %}
