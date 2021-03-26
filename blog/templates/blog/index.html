@@ -10,11 +10,11 @@
 			<a href="{% url 'hapus-artikel' post.pk %}">(Hapus)</a>
 			{% endif %}
 			<br>
-			<small>Penulis: {{ post.author }}</small>
+			<small>Penulis: {{ post.author }}
 			<br>
-			<small>Kategori: {{ post.kategori }}</small>
+			Kategori: {{ post.kategori }}
 			<br>
-			<small>Posted on: {{ post.pub_date }}</small>
+			Posted on: {{ post.pub_date }}</small>
 			<br>
 			{{ post.konten|slice:":250"|safe }}
 			</li>
