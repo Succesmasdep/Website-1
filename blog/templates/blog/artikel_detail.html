@@ -10,7 +10,7 @@
 
 <h1>{{ post.judul }}</h1>
 <small>Oleh : {{ post.author}}</small><br/>
-<small>Posted on: {{pub_date }}</small> <br>
+<small>Posted on: {{ post.pub_date }}</small> <br>
 {% if user.is_authenticated %}
 <a href="{% url 'edit-artikel' post.pk %}">(Edit)</a>
 <a href="{% url 'hapus-artikel' post.pk %}">(Hapus)</a>
