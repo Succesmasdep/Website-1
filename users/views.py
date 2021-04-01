@@ -7,12 +7,12 @@ from .forms import SignUpForm, EditProfileForm, PasswordChangingForm
 
 class UserRegisterView(generic.CreateView):
     form_class = SignUpForm
-    template_name = 'users/register.html'
+    template_name = 'registration/register.html'
     succes_url = reverse_lazy('login')
 
 class UserEditView(generic.UpdateView):
     form_class = EditProfileForm
-    template_name = 'users/edit_profile.html'
+    template_name = 'registration/edit_profile.html'
     succes_url = reverse_lazy('home')
 
     def get_object(self):
@@ -20,5 +20,5 @@ class UserEditView(generic.UpdateView):
 
 class PasswordChangeView(PasswordChangeView):
     form_class = PasswordChangingForm
-    template_name= 'users/change_password.html'
+    template_name= 'registration/change_password.html'
     success_url = reverse_lazy('home')

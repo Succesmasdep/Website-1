@@ -28,5 +28,10 @@
     {{ post.konten|safe }}
 
     <br><br>
+    
     <a class="btn btn-info" href="{% url 'home' %}">Home</a>
+    <hr>
+
+    <img src="{{post.author.profile.profile_pic}}" class="rounded-circle">
+    
 {% endblock content %}
