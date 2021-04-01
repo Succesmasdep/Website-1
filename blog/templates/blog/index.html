@@ -12,7 +12,7 @@
 			<br>
 			<small>Penulis: {{ post.author }}
 			<br>
-			Kategori: {{ post.kategori }}
+			Kategori: <a href="{% url 'kategori' post.kategori|slugify %}">{{ post.kategori }}</a>
 			<br>
 			Posted on: {{ post.pub_date }}</small>
 			<br>

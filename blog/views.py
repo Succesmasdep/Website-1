@@ -11,10 +11,6 @@ class HomeView(ListView):
     template_name = 'blog/index.html'
     ordering =['-pub_date']
 
-def CategoryView(request, cats):
-    category_posts = Post.objects.filter(kategori=cats)
-    return render(request, 'blog/categories.html', {'cats':cats, 'category_posts':category_posts })
-
 class ArtikelDetail(DetailView):
     model = Post
     template_name = 'blog/artikel_detail.html'
@@ -24,11 +20,6 @@ class AddPostView(CreateView):
     form_class = PostForm
     template_name = "blog/post_artikel.html"
     # fields = '__all__'
-
-class AddCategoryView(CreateView):
-    model = Category
-    template_name = 'blog/add_category.html'
-    fields = '__all__'
 
 class PostUpdateView(UpdateView):
     model = Post
@@ -40,3 +31,12 @@ class PostDeleteView(DeleteView):
     model = Post
     template_name = "blog/hapus_artikel.html"
     success_url = reverse_lazy('home')
+
+class AddCategoryView(CreateView):
+    model = Category
+    template_name = 'blog/add_category.html'
+    fields = '__all__'
+    
+def CategoryView(request, cats):
+    category_posts = Post.objects.filter(kategori=cats.replace('-', ' '))
+    return render(request, 'blog/categories.html', {'cats':cats.title().replace('-', ' '), 'category_posts':category_posts })

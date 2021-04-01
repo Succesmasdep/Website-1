@@ -1,7 +1,7 @@
 from django import forms
 from .models import Post, Category
 
-cats = Category.objects.all().values_list('name','name')
+cats = Category.objects.all().values_list('name','name') #dari models name
 
 choices_list = []
 
@@ -15,7 +15,7 @@ class PostForm(forms.ModelForm):
         widgets = {
             'judul' : forms.TextInput(attrs={'class': 'form-control'}),
             'author' : forms.Select(attrs={'class': 'form-control'}),
-            'kategori' : forms.Select(choices= choices_list, attrs={'class': 'form-control'}),
+            'kategori' : forms.Select(choices=choices_list, attrs={'class': 'form-control'}),
             'konten' : forms.Textarea(attrs={'class': 'form-control'}),
         }
 

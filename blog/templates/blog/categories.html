@@ -2,27 +2,35 @@
 
 {% block content %}
 
+{% if category_posts %}
+
 <h1>{{cats}}</h1>
     <ul>
-        {% for category in category_posts %}
-            <li>
-            <h3><a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a></h3>
-            {% if user.is_authenticated %}
-            <a href="{% url 'edit-artikel' post.pk %}">(Edit)</a>
-            <a href="{% url 'hapus-artikel' post.pk %}">(Hapus)</a>
-            {% endif %}
-            <br>
-            <small>Penulis: {{ post.author }}</small>
-            <br>
-            <small>Kategori: {{ post.kategori }}</small>
-            <br>
-            <small>Posted on: {{ post.pub_date }}</small>
-            <br>
-            {{ post.konten|slice:":250"|safe }}
-            </li>
-            <br>
+        {% for post in category_posts %}
+        <li>
+        <h3><a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a></h3>
+        {% if user.is_authenticated %}
+        <a href="{% url 'edit-artikel' post.pk %}">(Edit)</a>
+        <a href="{% url 'hapus-artikel' post.pk %}">(Hapus)</a>
+        {% endif %}
+        <br>
+        <small>Penulis: {{ post.author }}
+        <br>
+        Kategori: <a href="{% url 'kategori' post.kategori %}">{{ post.kategori }}</a>
+        <br>
+        Posted on: {{ post.pub_date }}</small>
+        <br>
+        {{ post.konten|slice:":250"|safe }}
+        <br>
+        </li>
         {% endfor %}
-    </ul>
+    </ul>    
+{% else %}
+
+<h2>Mohon maaf Kategori tidak tersedia</h2>
+
+{% endif %}
+
 
 {% endblock content %}
 	
