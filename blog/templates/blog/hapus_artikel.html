@@ -7,6 +7,7 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
     <h1>Hapus Artikel {{ post.judul}}</h1>
     <br>
 
@@ -17,7 +18,9 @@
             <button type="submit" class="btn btn-danger">Hapus Artikel</button>
         </div>
     </form>
-
+    {% else %}
+    Anda tidak diperbolehkan mengakses ini...
+    {% endif %}
 {% else %}
 
 Anda Harus Log In Terlebih dahulu!!!
@@ -25,5 +28,5 @@ Anda Harus Log In Terlebih dahulu!!!
 {% endif %}
 
     <br><br>
-    <a class="btn btn-info" href="{% url 'home' %}">Kembali</a>
+    <a class="btn btn-info" href="{% url 'home' %}">Home</a>
 {% endblock content %}

@@ -8,17 +8,26 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-    <h1>Edit Artikel Anda</h1>
-    <br>
+    
+    {% if user.id == post.author.id %}
 
-    <form method="POST" action="">
-        <div class="form-group">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Post</button>
-        </div>
-    </form>
+        <h1>Edit Artikel Anda</h1>
+        <br>
+
+        <form method="POST" action="">
+            <div class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Post</button>
+            </div>
+        </form>
+
+    {% else %}
+
+        <h2>You're not allowed here! (And you know it...)</h2>
+
+    {% endif %}
 {% endif %}
     <br><br>
-    <a class="btn btn-info" href="{% url 'home' %}">Kembali</a>
+    <a class="btn btn-info" href="{% url 'home' %}">Home</a>
 {% endblock content %}

@@ -9,7 +9,15 @@ from django.urls import reverse_lazy
 class HomeView(ListView):
     model = Post
     template_name = 'blog/index.html'
+    cats = Category.objects.all()
     ordering =['-pub_date']
+
+    def get_context_data(self, *args, **kwargs):
+        cat_menu  = Category.objects.all()
+        context = super(HomeView, self).get_context_data(*args, **kwargs)
+        context["cat_menu"] = cat_menu
+        return context
+    
 
 class ArtikelDetail(DetailView):
     model = Post
@@ -40,3 +48,7 @@ class AddCategoryView(CreateView):
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(kategori=cats.replace('-', ' '))
     return render(request, 'blog/categories.html', {'cats':cats.title().replace('-', ' '), 'category_posts':category_posts })
+
+def CategoryListView(request):
+    cat_menu_list  = Category.objects.all()
+    return render(request, 'blog/categories_list.html', {'cat_menu_list':cat_menu_list})

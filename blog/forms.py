@@ -22,8 +22,9 @@ class PostForm(forms.ModelForm):
 class EditForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('judul', 'konten')
+        fields = ('judul', 'konten', 'kategori')
         widgets = {
             'judul' : forms.TextInput(attrs={'class':'form-control'}),
+            'kategori' : forms.Select(choices=choices_list, attrs={'class': 'form-control'}),
             'konten' : forms.Textarea(attrs={'class':'form-control'}),
         }

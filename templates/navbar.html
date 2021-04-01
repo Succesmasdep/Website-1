@@ -44,12 +44,24 @@
             </a>
           </li>
           {% endif %}
+          
+          {% if cat_menu %}      
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Kategori
+            </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a href="#" class="dropdown-item">Action</a>
+              {% for item in cat_menu %}
+              <a href="{% url 'kategori' item|slugify %}" class="dropdown-item">{{ item }}</a>
+              {% endfor %}
             </div>
           </li>
+          {% else %}
+          <li>
+            <a href="{% url 'list-kategori' %}" class="nav-link">Kategori
+            </a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </div>

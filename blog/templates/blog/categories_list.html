@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block judul %}
+    Stand Blog | Blog Kategori
+{% endblock judul %}
+    
+
+{% block content %}
+
+    <h1>Blog Kategori</h1>
+        {% for item in cat_menu_list %}
+            <a href="{% url 'kategori' item|slugify %}" class="dropdown-item">{{ item }}</a>
+        {% endfor %}
+
+
+    <br><br>
+    <a class="btn btn-info" href="{% url 'home' %}">Home</a>
+{% endblock content %}

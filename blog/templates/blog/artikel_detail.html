@@ -8,17 +8,18 @@
 
 {% block content %}
 
-<h1>{{ post.judul }}</h1>
-<small>Oleh : {{ post.author}}</small><br/>
-<small>Posted on: {{ post.pub_date }}</small> <br>
-{% if user.is_authenticated %}
-<a href="{% url 'edit-artikel' post.pk %}">(Edit)</a>
-<a href="{% url 'hapus-artikel' post.pk %}">(Hapus)</a>
-{% endif %}
-<hr>
-<br/>
-{{ post.konten|safe }}
+    <h1>{{ post.judul }}</h1>
+    <small>Oleh : {{ post.author}}</small><br/>
+    <small>Posted on: {{ post.pub_date }}</small> <br>
+    {% if user.is_authenticated %}
+        {% if user.id == post.author.id %}
+        <a href="{% url 'edit-artikel' post.pk %}">(Edit)</a>
+        <a href="{% url 'hapus-artikel' post.pk %}">(Hapus)</a>
+        {% endif %}
+    {% endif %}
+    <hr>
+    {{ post.konten|safe }}
 
-<br><br>
-<a class="btn btn-info" href="{% url 'home' %}">Kembali</a>
+    <br><br>
+    <a class="btn btn-info" href="{% url 'home' %}">Home</a>
 {% endblock content %}
