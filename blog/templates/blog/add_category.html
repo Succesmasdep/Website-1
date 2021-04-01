@@ -12,7 +12,7 @@
     
     <form method="POST" action="">
         <div class="form-group">
-            {% csrf_token %}
+            {% csrf_token %}            
             {{ form.as_p }}
             <button type="submit" class="btn btn-primary">Tambah Kategori</button>
         </div>

@@ -13,12 +13,18 @@
     <form method="POST" action="">
         <div class="form-group">
             {% csrf_token %}
+            {{ form.media }}
             {{ form.as_p }}
             <button type="submit" class="btn btn-primary">Post</button>
         </div>
     </form>
+
+    <script>
+        var name = "{{ user.id }}";
+        document.getElementById("author").value = name;
+    </script>
 {% endif %}
 
     <br><br>
-    <a class="btn btn-info" href="{% url 'home' %}">Kembali</a>
+    <a class="btn btn-info" href="{% url 'home' %}">Home</a>
 {% endblock content %}

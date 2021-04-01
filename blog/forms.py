@@ -12,9 +12,10 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('judul', 'author','kategori', 'konten')
+
         widgets = {
             'judul' : forms.TextInput(attrs={'class': 'form-control'}),
-            'author' : forms.Select(attrs={'class': 'form-control'}),
+            'author' : forms.TextInput(attrs={'class': 'form-control', 'id':'author', 'value':'', 'type':'hidden'}),
             'kategori' : forms.Select(choices=choices_list, attrs={'class': 'form-control'}),
             'konten' : forms.Textarea(attrs={'class': 'form-control'}),
         }

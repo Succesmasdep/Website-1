@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block judul %}
+    Stand Blog | Edit Profile
+{% endblock judul %}
+    
+{% block content %}
+
+    <h1>Edit Profile</h1>
+    
+    <form method="POST" action="">
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Edit Profile</button>
+        </div>
+    </form>
+
+
+    
+{% endblock content %}

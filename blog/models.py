@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
+# from ckeditor.fields import RichTechField 
 
-# Create your models here.
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -17,6 +17,7 @@ class Category(models.Model):
 class Post(models.Model):
     judul = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    # konten = RichTextField(blank=True, null=True)
     konten = models.TextField()
     pub_date = models.DateField(auto_now_add=True)
     kategori = models.CharField(max_length=255, default="uncategorized")
