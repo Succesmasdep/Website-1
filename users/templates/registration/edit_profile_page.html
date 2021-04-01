@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block judul %}
+    Stand Blog | Edit Profile
+{% endblock judul %}
+    
+{% block content %}
+
+{% if user.is_authenticated %}
+    <h1>Edit Profile Page</h1>
+    
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Edit Profile</button>
+        </div>
+    </form>
+
+ 
+{% endif %}
+
+    <br><br>
+    <a class="btn btn-info" href="{% url 'home' %}">Home</a>
+{% endblock content %}
