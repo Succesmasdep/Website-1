@@ -18,6 +18,13 @@
         {% endif %}
     {% endif %}
     <hr>
+    
+    {% if post.header_image %}
+        
+    <img src="{{ post.header_image }}" alt=""> <br>
+
+    {% endif %}
+    
     {{ post.konten|safe }}
 
     <br><br>

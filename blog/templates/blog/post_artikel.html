@@ -10,7 +10,7 @@
 {% if user.is_authenticated %}
     <h1>Tambahkan Artikel Baru</h1>
     
-    <form method="POST" action="">
+    <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
             {% csrf_token %}
             {{ form.media }}

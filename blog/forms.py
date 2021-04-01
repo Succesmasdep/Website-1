@@ -11,7 +11,7 @@ for item in cats:
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('judul', 'author','kategori', 'konten')
+        fields = ('judul', 'author', 'kategori', 'konten') # header_image belum dimasukan karena belum install Pillow
 
         widgets = {
             'judul' : forms.TextInput(attrs={'class': 'form-control'}),

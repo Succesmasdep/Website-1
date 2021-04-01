@@ -16,6 +16,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     judul = models.CharField(max_length=255)
+    # header_images = models.ImageField(null=True, blank=True, upload_to="images/")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     # konten = RichTextField(blank=True, null=True)
     konten = models.TextField()
