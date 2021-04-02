@@ -5,7 +5,7 @@
 
 	<div class="card-columns">
 		{% for post in object_list %}
-			<div class="card">
+			<div class="card border-dark">
 				<div class="card-body">
 					<h5 class="card-title"><a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a></h5>
 					<p class="card-text">{{ post.konten|slice:":250"|safe|markdownify }}...<a href="{% url 'detail-artikel' post.pk %}">Baca Selengkapnya</a></p>

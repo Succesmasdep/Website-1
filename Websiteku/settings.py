@@ -169,5 +169,7 @@ MDEDITOR_CONFIGS = {
 
 
 
-import django_heroku
-django_heroku.settings(locals())
+try:
+    from Website.local_settings import *
+except ImportError:
+    pass
