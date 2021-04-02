@@ -8,7 +8,7 @@
             <ul>
                 {% for post in category_posts %}
                 <li>
-                <h3><a href="{% url 'detail-artikel' post.pk %}">{{ post.judul }}</a></h3>
+                <h3><a href="{% url 'detail-artikel' post.pk %}" id="judul">{{ post.judul }}</a></h3>
                 {% if user.is_authenticated %}
                 <a href="{% url 'edit-artikel' post.pk %}">(Edit)</a>
                 <a href="{% url 'hapus-artikel' post.pk %}">(Hapus)</a>

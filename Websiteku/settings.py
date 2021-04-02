@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '#+7w=wya-x13c_hx7684v2(pcs1#336!trb-+#f-gb&8#lg%c!')
+SECRET_KEY = '#+7w=wya-x13c_hx7684v2(pcs1#336!trb-+#f-gb&8#lg%c!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = True 
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost 127.0.0.1').split()
+ALLOWED_HOSTS = ['https://stand-blog.herokuapp.com/', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -35,7 +35,7 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost 127.0.0.1').split()
 INSTALLED_APPS = [
     'blog',
     'users',
-    # 'ckeditor',
+    'mdeditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,3 +130,35 @@ MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+
+
+MDEDITOR_CONFIGS = {
+    'default': {
+        'width': '90% ',  # Custom edit box width
+        'heigth': 500,  # Custom edit box height
+        'toolbar': ["undo", "redo", "|",
+                    "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
+                    "h3", "h5", "h6", "|",
+                    "list-ul", "list-ol", "hr", "|",
+                    "link", "reference-link", "code", "preformatted-text", "code-block", "datetime", "html-entities", "goto-line", "|",
+                    "help", "info",
+                    "||", "preview", "watch", "fullscreen"],  # custom edit box toolbar
+        # image upload format type
+        'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+        'image_folder': 'editor',  # image save the folder name
+        'theme': 'default',  # edit box theme, dark / default
+        'preview_theme': 'default',  # Preview area theme, dark / default
+        'editor_theme': 'default',  # edit area theme, pastel-on-dark / default
+        'toolbar_autofixed': True,  # Whether the toolbar capitals
+        'search_replace': True,  # Whether to open the search for replacement
+        'emoji': False,  # whether to open the expression function
+        'tex': True,  # whether to open the tex chart function
+        'flow_chart': False,  # whether to open the flow chart function
+        'sequence': True,  # Whether to open the sequence diagram function
+        'watch': True,  # Live preview
+        'lineWrapping': False,  # lineWrapping
+        'lineNumbers': False,  # lineNumbers
+        'language': 'en'  # zh / en / es
+    }
+}

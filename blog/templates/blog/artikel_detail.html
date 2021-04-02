@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <h1>{{ post.judul }}</h1>
+    <h1 id="judul">{{ post.judul }}</h1>
     <small>Oleh : {{ post.author}}</small><br/>
     <small>Posted on: {{ post.pub_date }}</small> <br>
     {% if user.is_authenticated %}

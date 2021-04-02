@@ -1,5 +1,6 @@
 from django import forms
 from .models import Post, Category
+from mdeditor.fields import MDTextFormField
 
 cats = Category.objects.all().values_list('name','name') #dari models name
 
@@ -11,13 +12,13 @@ for item in cats:
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('judul', 'author', 'kategori', 'konten') # header_image belum dimasukan karena belum install Pillow
+        fields = ('judul', 'author', 'kategori', 'konten')
 
         widgets = {
             'judul' : forms.TextInput(attrs={'class': 'form-control'}),
             'author' : forms.TextInput(attrs={'class': 'form-control', 'id':'author', 'value':'', 'type':'hidden'}),
             'kategori' : forms.Select(choices=choices_list, attrs={'class': 'form-control'}),
-            'konten' : forms.Textarea(attrs={'class': 'form-control'}),
+            'konten' : MDTextFormField(),
         }
 
 class EditForm(forms.ModelForm):
@@ -27,5 +28,5 @@ class EditForm(forms.ModelForm):
         widgets = {
             'judul' : forms.TextInput(attrs={'class':'form-control'}),
             'kategori' : forms.Select(choices=choices_list, attrs={'class': 'form-control'}),
-            'konten' : forms.Textarea(attrs={'class':'form-control'}),
+            'konten' : MDTextFormField(),
         }

@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
-# from ckeditor.fields import RichTechField 
+from mdeditor.fields import MDTextField 
 
 
 class Category(models.Model):
@@ -17,7 +17,7 @@ class Category(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     bio =  models.TextField()
-    # profile_pic = models.ImageField(null=True, blank=True, upload_to="images/profiles")
+    profile_pic = models.ImageField(null=True, blank=True, upload_to="images/profiles")
     facebook_url = models.CharField(max_length=255, null=True, blank=True)
     instagram_url = models.CharField(max_length=255, null=True, blank=True)
     github_url = models.CharField(max_length=255, null=True, blank=True)
@@ -29,10 +29,9 @@ class Profile(models.Model):
 
 class Post(models.Model):
     judul = models.CharField(max_length=255)
-    # header_images = models.ImageField(null=True, blank=True, upload_to="images/")
+    header_images = models.ImageField(null=True, blank=True, upload_to="images/")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    # konten = RichTextField(blank=True, null=True)
-    konten = models.TextField()
+    konten = MDTextField(blank=True, null=True)
     pub_date = models.DateField(auto_now_add=True)
     kategori = models.CharField(max_length=255, default="uncategorized")
 
