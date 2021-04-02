@@ -163,3 +163,8 @@ MDEDITOR_CONFIGS = {
         'language': 'en'  # zh / en / es
     }
 }
+
+
+
+import django_heroku
+django_heroku.settings(locals())
