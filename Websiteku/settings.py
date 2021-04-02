@@ -111,14 +111,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+LANGUAGE_CODE = 'id-ID'
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -143,7 +139,7 @@ MDEDITOR_CONFIGS = {
         'heigth': 500,  # Custom edit box height
         'toolbar': ["undo", "redo", "|",
                     "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
-                    "h3", "h5", "h6", "|",
+                    "h1","h3", "h5", "h6", "|",
                     "list-ul", "list-ol", "hr", "|",
                     "link", "reference-link", "code", "preformatted-text", "code-block", "datetime", "html-entities", "goto-line", "|",
                     "help", "info",
@@ -164,6 +160,45 @@ MDEDITOR_CONFIGS = {
         'lineWrapping': False,  # lineWrapping
         'lineNumbers': False,  # lineNumbers
         'language': 'en'  # zh / en / es
+    }
+}
+
+MARKDOWNIFY = {
+    'default': {
+        'WHITELIST_TAGS': [
+            'a',
+            'abbr',
+            'acronym',
+            'b',
+            'blockquote',
+            'em',
+            'i',
+            'li',
+            'ol',
+            'p',
+            'strong',
+            'ul',
+            'code',
+            'pre',
+            'hr',
+            'h1',
+            'h2',
+            'h3',
+            'h4',
+            'h5',
+            'h6',
+            'img',
+        ],
+        'WHITELIST_ATTRS': [
+            'href',
+            'src',
+            'alt',
+        ],
+        'MARKDOWN_EXTENSIONS': [
+            'markdown.extensions.fenced_code',
+            'markdown.extensions.extra',
+        ],
+        'SKIP_TAGS': ['pre', 'code']
     }
 }
 

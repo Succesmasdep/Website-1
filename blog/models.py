@@ -33,6 +33,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     konten = MDTextField(blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
+    update = models.DateTimeField(auto_now=True)
     kategori = models.CharField(max_length=255, default="uncategorized")
 
     def __str__(self):
@@ -41,11 +42,11 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("detail-artikel", kwargs={"pk": self.pk})
     
-class Comments(models.Model):
+class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='Comments', on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
     body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '%s - %s' % (self.post.title, self.name)
+        return '%s - %s' % (self.post.judul, self.name)

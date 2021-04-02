@@ -25,10 +25,23 @@
 
     {% endif %}
     
-    {{ post.konten|safe|markdownify }}
+    {{ post.konten|markdownify|safe }}
 
-    <br><br>
-    
+    <br><br><hr><br>
+    <h2 class="text-center">Comments</h2>
+    {% if not post.Comments.all %}
+        Tidak ada Komentar untuk saat ini
+    {% else %}
+        {% for comment in post.Comments.all %}
+            <strong>{{ comment.name }} - {{ comment.date_added}}</strong>
+            <br>
+             {{ comment.body }}
+            <br>
+        {% endfor %}
+    {% endif %}
+
+    <br><br><hr>
+
     <a class="btn btn-info" href="{% url 'home' %}">Home</a>
     <hr>
 
