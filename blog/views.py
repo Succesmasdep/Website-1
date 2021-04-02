@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 class HomeView(ListView):
+    paginate_by = 6
     model = Post
     template_name = 'blog/index.html'
     cats = Category.objects.all()
@@ -18,7 +19,6 @@ class HomeView(ListView):
         context["cat_menu"] = cat_menu
         return context
     
-
 class ArtikelDetail(DetailView):
     model = Post
     template_name = 'blog/artikel_detail.html'
