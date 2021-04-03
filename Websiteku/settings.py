@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import django_heroku
 from pathlib import Path
 import dj_database_url
 
@@ -203,8 +204,4 @@ MARKDOWNIFY = {
 }
 
 
-
-try:
-    from Website.local_settings import *
-except ImportError:
-    pass
+django_heroku.settings(locals())
