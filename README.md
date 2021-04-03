@@ -10,7 +10,7 @@ lebih lanjut silahkan hubungi email = [Amarulloh](krilinamar@gmail.com)
 2. Buat folder baru untuk menempatkan file ini
 3. Clone repository ini ke komputer anda
 
-  ` git clone http://github.com/Ngapa/Website `
+    ` git clone http://github.com/Ngapa/Website `
 
 4. Pasang Virtual enviroment
  
