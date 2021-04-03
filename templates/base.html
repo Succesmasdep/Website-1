@@ -14,8 +14,11 @@
             </div>
 		</main>
 
-		<!-- Footer -->
-		{% include 'footer.html' %}
+		{% block footer %}
+			<!-- Footer -->
+			{% include 'footer.html' %}			
+		{% endblock footer %}
+		
 
 		<!-- JavaScript -->
 		{% include 'javascript.html' %}

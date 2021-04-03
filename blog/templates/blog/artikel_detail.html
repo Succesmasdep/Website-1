@@ -25,7 +25,7 @@
 
     {% endif %}
     
-    {{ post.konten|markdownify|safe }}
+    {{ post.konten|safe|markdownify }}
 
     <br><br><hr><br>
     <h2 class="text-center">Comments</h2>

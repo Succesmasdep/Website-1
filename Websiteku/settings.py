@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
-# import dj_database_url
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -141,7 +141,7 @@ MDEDITOR_CONFIGS = {
                     "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                     "h1","h3", "h5", "h6", "|",
                     "list-ul", "list-ol", "hr", "|",
-                    "link", "reference-link", "code", "preformatted-text", "code-block", "datetime", "html-entities", "goto-line", "|",
+                    "link", "reference-link", "code", "preformatted-text", "code-block", "datetime", "goto-line", "|",
                     "help", "info",
                     "||", "preview", "watch", "fullscreen"],  # custom edit box toolbar
         # image upload format type
@@ -198,7 +198,7 @@ MARKDOWNIFY = {
             'markdown.extensions.fenced_code',
             'markdown.extensions.extra',
         ],
-        'SKIP_TAGS': ['pre', 'code']
+        'STRIP': True
     }
 }
 
